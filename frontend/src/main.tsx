@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext.tsx";
 import axios from "axios";
-axios.defaults.baseURL = "https://ai-chatbot-backend-py30.onrender.com/api/v1";
+axios.defaults.baseURL = "https://ai-chatbot-backend-py30.onrender.com";
 axios.defaults.withCredentials = true;
 
 const theme = createTheme({
