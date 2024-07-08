@@ -1,7 +1,6 @@
 **/node_modules
 **/package-lock.json
 backend/.env
-backend/dist
 
 # Editor directories and files
 .vscode/*
