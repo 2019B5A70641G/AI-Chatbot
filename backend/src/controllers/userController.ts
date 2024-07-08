@@ -25,19 +25,21 @@ export const signUpUser = async (req:Request,res:Response,next:NextFunction) => 
         // create token and store cookie
         res.clearCookie(COOKIE_NAME, {
           httpOnly: true,
-          domain: "localhost",
           signed: true,
           path: "/",
+          secure: true,
+          sameSite: 'none'
         });
         const token = createToken(user._id.toString(), user.email, "7d");
         const expires = new Date();
         expires.setDate(expires.getDate() + 7);
         res.cookie(COOKIE_NAME, token, {
           path: "/",
-          domain: "localhost",
           expires,
           httpOnly: true,
           signed: true,
+          secure: true,
+          sameSite: 'none'
         });
         return res.status(201).json({message: "OK", name: user.name, email: user.email });
 
@@ -61,19 +63,21 @@ export const loginUser = async (req:Request,res:Response,next:NextFunction) => {
         // create token and store cookie
         res.clearCookie(COOKIE_NAME, {
           httpOnly: true,
-          domain: "localhost",
           signed: true,
           path: "/",
+          secure: true,
+          sameSite: 'none'
         });
         const token = createToken(user._id.toString(), user.email, "7d");
         const expires = new Date();
         expires.setDate(expires.getDate() + 7);
         res.cookie(COOKIE_NAME, token, {
           path: "/",
-          domain: "localhost",
           expires,
           httpOnly: true,
           signed: true,
+          secure: true,
+          sameSite: 'none'
         });
         return res.status(200).json({message: "OK", name: user.name, email: user.email });
     } catch (error) {
@@ -121,11 +125,12 @@ export const verifyUser = async (
       }
   
       res.clearCookie(COOKIE_NAME, {
-        httpOnly: true,
-        domain: "localhost",
-        signed: true,
-        path: "/",
-      });
+          httpOnly: true,
+          signed: true,
+          path: "/",
+          secure: true,
+          sameSite: 'none'
+        });
   
       return res
         .status(200)
