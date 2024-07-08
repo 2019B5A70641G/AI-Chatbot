@@ -8,7 +8,7 @@ config();
 const app = express();
 
 //middlewares
-app.use(cors({origin: "https://ai-chatbot-frontend-8d71.onrender.com",credentials: true}));
+app.use(cors({origin: true ,credentials: true}));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 //remove it before production
